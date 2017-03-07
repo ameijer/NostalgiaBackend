@@ -1,0 +1,43 @@
+#used for connecting to master BTC address server
+jerseyClient:
+  timeout: 1000ms
+  connectionTimeout: 1000ms
+  minThreads: 1
+  maxThreads: 128
+  workQueueSize: 8
+  gzipEnabled: false
+  gzipEnabledForRequests: false
+  chunkedEncodingEnabled: false
+
+VideoCouch:
+  host: REDACTED
+  bucketName: REDACTED
+  bucketPassword: REDACTED
+
+server:
+  type: simple
+  applicationContextPath: /
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 9797
+
+DataConfig:
+  datadir: /webroot/data
+
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: ALL
+
+  # Logger-specific levels.
+  loggers:
+
+    # Sets the level for 'com.apmasphere.billproto' to DEBUG.
+    com.apmasphere.billproto: DEBUG
+
+    org.hibernate.SQL: ALL
+
+  appenders:
+    - type: console

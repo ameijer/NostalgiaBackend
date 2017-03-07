@@ -1,0 +1,76 @@
+server:
+  gzip:
+      enabled: false
+  applicationContextPath: /
+  applicationConnectors:
+    - type: http
+      port: 10004
+      idleTimeout: 120 seconds
+      keyStorePath: webapp.keystore
+      keyStorePassword: REDACTED
+  adminContextPath: /admin
+  adminConnectors:
+    - type: http
+      bindHost: 127.0.0.1 # only bind to loopback
+      port: 10005
+
+iconSvcConn:
+  iconHost: REDACTED
+  port: 10001
+  newIconPath: /api/v0/icongen/newicon
+
+UserCouch:
+  host: REDACTED
+  bucketName: REDACTED
+  bucketPassword: REDACTED
+  
+LocationCouch:
+  host: REDACTED
+  bucketName: REDACTED
+  bucketPassword: REDACTED
+  
+  
+VideoCouch:
+  host: REDACTED
+  bucketName: REDACTED
+  bucketPassword: REDACTED
+
+MediaCollectionCouch:
+  host: REDACTED
+  bucketName: REDACTED
+  bucketPassword: REDACTED
+
+AtomicsCouch:
+  host: REDACTED
+  bucketName: REDACTED
+  bucketPassword: REDACTED
+
+
+SyncServer:
+  host: REDACTED
+  port: 4985
+
+jerseyClient:
+  minThreads: 1
+  maxThreads: 128
+  timeout: 1000ms
+  connectionTimeout: 1000ms
+
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: DEBUG
+
+  # Logger-specific levels.
+  loggers:
+
+    # Sets the level for 'com.apmasphere.billproto' to DEBUG.
+    com.apmasphere.billproto: DEBUG
+    
+    com.couchbase.client.core: INFO
+
+    org.hibernate.SQL: ALL
+
+  appenders:
+    - type: console
